@@ -1,0 +1,527 @@
+@charset "UTF-8";
+ul, ol {
+    list-style: none;
+}
+ p{
+	margin: 5px 0; 
+}
+/*header*/
+.headerBookingPay .btn-outline-light{
+	--bs-btn-border-color: #212529; 
+}
+
+.mainset{
+	width: 80%;
+    margin: 0 auto;
+}
+
+/* footer */
+.container-fluid {
+   background-color: #212529;
+}
+
+footer.footercss {
+   color:white !important;
+   max-width: 960px;
+   margin: 0 auto;
+}
+.footercss .text-body-secondary{
+    color: #fff !important; /* footer 내에서만 적용 */
+}
+
+/* main */
+
+main.mainset{
+	width: 80%;
+    margin: 0 auto;
+}
+main .cardname{
+	font-weight: bold;
+}
+main .place{
+	margin : 0;
+	padding : 0;
+}
+main .period{
+	margin : 0;/* <main class="form-signin w-100 m-auto"> */
+	padding : 0;
+	color : gray;
+}
+main .card{
+border: none;
+border-radius: 0;
+}
+
+/*login*/
+
+.loginAllBackColor{
+	background-color:  rgb(233, 236, 239) !important;
+}
+.loginBoxColor{
+	background-color: #212529;
+}
+
+.loginform .form-control:focus{
+    color: black; /* 텍스트 색상 */
+    background-color: white  !important; /* 배경색 */
+    border-color: grey  !important; /* 테두리 색상 */
+    outline: none; /* 기본 포커스 제거 */
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.8)  !important; /* 새로운 그림자 */
+	 
+}
+
+.loginformCenter .form-control{
+    border-radius: 0 !important;
+	 
+}
+
+.loginBtnW-32 {
+    width: 32% !important;
+}
+
+.loginBoxColor .btn-close {
+    --bs-btn-close-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+}
+.loginBoxColor .btn-close:focus{
+    color: black; /* 텍스트 색상 */
+    outline: none; /* 기본 포커스 제거 */
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.2)  !important; /* 새로운 그림자 */
+	 
+}
+
+/*found*/
+
+.foundBtnW-49 {
+    width: 49% !important;
+}
+.foundBasicFont {
+   font-size : 2rem; 
+   text-align: center;
+}
+.foundH2Font {
+    font-size : 2rem; 
+    font-weight: bold;
+}
+.foundHtml{
+	        height: 100% !important;
+            margin: 0;
+            padding: 0;
+}
+
+.foundHtml .p-4{
+	padding :9rem  1.5rem !important;
+}
+
+/*공연 상세 */
+/*메인*/
+.performMainTopName{
+	margin : 20px 0;
+	color: #222;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+}
+.performMainTopImgSize{
+	width: 350px;
+    height: 450px;
+}
+.performMainTopUl{
+	display: inline-block;
+	width: auto;
+    vertical-align: top;
+    padding-top : 2rem;
+    font-size : 1.2rem;
+    padding-left: 4rem;
+}
+
+.performMainTopUl strong{
+    display: inline-block;
+    width: 7rem;
+    vertical-align: top;
+    color: #000;
+}
+
+.performMainTopUl div {
+	display: inline-block;
+}
+
+.performMainTop div.container{
+	margin-right : 0;
+	margin-left : 0;
+}
+.performMainTopPrice{
+	padding-left : 0;
+}
+
+.performMainNav .btn-group{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+.performMainNav .btn{
+	border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.performMainBody strong{
+	font-size : 2rem;
+	font-weight: 700;
+	display : block;
+	margin-top: 1rem !important;
+	margin-bottom: 1rem !important;
+}
+.performMainBodyCasting div.container{
+	margin-right : 0;
+	margin-left : 0;
+	padding-right: 0;
+    padding-left: 0;	
+}
+.performMainBodyCasting .container div{
+	display: inline-block;
+	text-align: center;
+}
+.performMainBodyCasting .container .roleName{
+	margin-top: 1rem !important;
+	font-weight: 700 !important;
+}
+.performMainBodyCasting .container img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50% !important;	
+}
+/*casting*/
+.performCastingBody strong{
+	font-size : 1rem;
+	font-weight: 700;
+	width: 7rem;
+	margin: 1rem 0 1rem 1rem !important;
+
+}
+
+.performCastingBodySelect{
+	height: 20rem;
+}
+.performCastingBodySelect>div{
+	border-top : 1px solid black;
+	height: 25%;
+	padding : 10px 0;
+	display: flex;
+    align-items: center;
+
+}
+.performCastingBodySelect>div:last-child{
+	border-bottom : 1px solid black;
+
+}
+
+.performCastingBodySelect>div div{
+	display: inline-block;
+	
+}
+.performCastingBodyTable .table{
+	text-align: center;
+}
+/*review*/
+.reviewNickname{
+		text-align : center;
+	padding:10px 0;
+	width:30%; 
+    display: inline-block;
+    background : black;
+    color : white; 
+    border-style: none;
+}
+.reviewWrite input[type="text"] {
+    width: 70% !important;
+    height: 4rem;
+    margin: 0;
+    font-size: 1em;
+    padding-left: 5px;
+    display: inline;
+    outline: none;
+    box-sizing: border-box;
+    color: black;
+    background: inherit;
+    text-align: left;
+}
+.reviewWrite .btn{
+    width: 30%;
+    height: 4rem;
+    float: right;
+}
+.reviewWrite .btn-outline-dark{
+    --bs-btn-color: #fff !important;
+    --bs-btn-bg: #212529 !important;
+    --bs-btn-border-color: #212529 !important;
+    --bs-btn-hover-color: #212529 !important;
+    --bs-btn-hover-bg: #fff !important;
+    --bs-btn-hover-border-color: #212529 !important;
+    --bs-btn-active-color: #212529 !important;
+    --bs-btn-active-bg: #fff !important;
+    border-radius: 0 !important;
+}
+.reviewList{
+	padding: 0;
+}
+.reviewDetailContent{
+	padding: 1rem 2.4rem;
+    border: 0.1rem solid #212529;
+    border-radius: 0.375rem;
+}
+.reviewDetailHead{
+	display: flex;
+	justify-content:flex-end;
+}
+.reviewDetailHead .reviewInfo{
+	display: inline-block;
+}
+.reviewDetailContent{
+	    background-color: #d6d6d6;
+}
+
+.reviewDetailBody{
+    border: 1px solid #d6d6d6;
+    background-color: #f2f2f2;
+    border-radius: 0.375rem;
+    margin: 10px 0;
+    padding: 10px 10px 10px 20px;
+}
+
+/*booking*/
+.headerBookingPay .p-3 {
+    display: flex !important;
+    padding: 1rem 0 !important;
+}
+.headerBookingPay .contentAll {
+	display: flex !important;
+    flex-shrink: 0;
+}
+.headerBookingPay .text{
+	    flex: 0 0 auto !important;
+}
+.headerBookingPay .text-start,
+.headerBookingPay .text-end{
+	display : inline-block !important;
+}
+.headerBookingPay .flex-wrap{
+    margin: 0 auto !important;
+}
+.headerBookingPay .textPerformInfo{
+    width: 12rem ;
+    border-right: 2px solid #f2f2f2;
+    padding : 0 1rem;
+}
+.headerBookingPay .textBookingInfo{
+    width: 12rem;
+    border-left: 2px solid #f2f2f2;
+    padding : 0 1rem;
+}
+.headerBookingPay .p-20 {
+    padding-left: 75px !important;
+}
+
+/*bookingCalender*/
+
+
+.bookingCalender .calender {
+
+  padding: 5rem;
+  margin : 4rem 0;
+  background-color: #d6d6d6;
+  width: 20rem;
+  height: 20rem;
+  display: inline-block;
+}
+
+.bookingCalender .info-container {
+  display: flex;
+  flex-wrap: wrap; /* 공간 부족 시 줄바꿈 */
+  gap: 0.2rem; /* 아이템 간격 */
+}
+
+.bookingCalender .info-item {
+  flex: 1 1 calc(50% - 1rem); /* 기본적으로 한 줄에 두 개 */
+  padding: 1rem;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+}
+
+.bookingCalender p{
+	margin: 5px 0; 
+}
+
+/*bookingSeat*/
+.container .Seatfixed-layout {
+    width: 670px;  /* 고정 넓이 */
+    height: 520px;  /* 고정 높이 */
+    max-width: none; /* 반응형 최대 넓이 제거 */
+    max-height: none; /* 반응형 최대 높이 제거 */
+    margin: 0 auto; /* 필요 시 가운데 정렬 */
+}
+
+/*---------------  */
+
+/* 전체 컨테이너 */
+.seatInfoContainer {
+	
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 800px;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    margin: 0 auto;
+}
+.seatInfoTop {
+	display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+}
+.seatInfoTopDetail{
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    width: 30%; /* 각 영역 너비 */
+    box-sizing: border-box;
+}
+.seatInfoBottom{
+	display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.seatInfoBottomDetail{
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    width: 50%; /* 각 영역 너비 */
+    box-sizing: border-box;
+}
+.seatInfoBottom .selectedSeats{
+	text-align: left;
+
+}
+.seatInfoBottom .seatGuide{
+	text-align: left;
+
+}
+
+
+.selected-seats, .seat-guide {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+}
+.seat-guide div {
+	display: inline-block;
+}
+.seat-guide li{
+	display: flex !important;
+    align-items: center !important;
+}
+
+
+ .seatInfoBottom  .seatsColor{
+    width: 1rem;
+    height: 1rem;
+    background: burlywood;
+    display: inline-block;
+    margin-right : 1rem; 
+        margin-top: 0; /* 상단 여백을 0으로 설정 */
+    margin-bottom: 0; /* 하단 여백을 0으로 설정 */	
+}
+.btnsize{
+    width: 800px;
+    height: auto;
+ }
+
+/**/
+
+.bookingSeatInfoBy .bookingTicketInfo{
+	display: flex !important;
+    align-items: center !important;
+    border: 1px solid black;
+
+}
+
+.bookingSeatBY .btn-outline-dark{
+    --bs-btn-color: #fff !important;
+    --bs-btn-bg: #212529 !important;
+    --bs-btn-border-color: #212529 !important;
+    --bs-btn-hover-color: #212529 !important;
+    --bs-btn-hover-bg: #fff !important;
+    --bs-btn-hover-border-color: #212529 !important;
+    --bs-btn-active-color: #212529 !important;
+    --bs-btn-active-bg: #fff !important;
+    border-radius: 0 !important;
+    width: 20%;
+	height: 4.5rem;
+}
+.bookingTicketInfoDetail{
+	width: 80%;
+	height: auto;
+	padding: 10px 0 10px 10px;
+	margin: 0;
+}
+.bookingTicketInfoDetail strong{
+	display: inline-block;
+    width: 7rem;
+    vertical-align: top;
+}
+.bookingSeatTicketPickup .bookingPickupRadio{
+	display: flex !important;
+    align-items: center !important;
+    border: 1px solid black;
+    justify-content: center;
+ 	padding: 10px 0 ;
+}
+
+.bookingCompleteCentent{
+	border: 1px solid black;
+	border-radius: 2rem;
+	text-align: left;
+	padding: 20px 30px;
+}
+
+.bookingCompleteCentent strong{
+	display: inline-block;
+    width: 10rem;
+    vertical-align: top;
+}
+
+
+
+
+
+/* 한 개만 있으면 전체 너비 사용 */
+.info-container .info-item:nth-child(1):only-child {
+  flex: 1 1 100%;
+}
+
+/* 정렬 */
+.alienCenter{
+    display: flex; /* Flexbox 활성화 */
+    justify-content: center; /* 수평 중앙 정렬 */
+	
+}
+.alienCenter img{
+    max-width: 100%; /* 반응형 크기 조정 */
+    height: auto;
+}
+
+.alienCenter h2{
+    max-width: 100%; /* 반응형 크기 조정 */
+    height: auto;
+}
+
+/*font*/
+.fontColorWhite{
+	color : white;
+}
