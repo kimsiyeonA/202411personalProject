@@ -3,14 +3,14 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 /* Drop Tables */
 
 DROP TABLE IF EXISTS artist;
+DROP TABLE IF EXISTS booking;
 DROP TABLE IF EXISTS casting;
 DROP TABLE IF EXISTS price;
+DROP TABLE IF EXISTS review;
 DROP TABLE IF EXISTS seat;
 DROP TABLE IF EXISTS theater;
 DROP TABLE IF EXISTS performances;
 DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS booking;
-DROP TABLE IF EXISTS review;
 
 
 
@@ -58,8 +58,18 @@ CREATE TABLE booking
 ',
 	-- 공연시작날짜+예약자 uidx+공연장 tidx+공연 pidx+좌석 sidx
 	bbookingnumber varchar(100) NOT NULL COMMENT '공연시작날짜+예약자 uidx+공연장 tidx+공연 pidx+좌석 sidx',
+	uidx int unsigned NOT NULL,
+	pidx int unsigned NOT NULL,
+	tidx int unsigned NOT NULL,
+	sidx int unsigned NOT NULL,
+	priceidx int unsigned NOT NULL,
 	PRIMARY KEY (bidx),
-	UNIQUE (bidx)
+	UNIQUE (bidx),
+	UNIQUE (uidx),
+	UNIQUE (pidx),
+	UNIQUE (tidx),
+	UNIQUE (sidx),
+	UNIQUE (priceidx)
 );
 
 
@@ -154,12 +164,8 @@ CREATE TABLE performances
 	-- 
 	pcastingimage text COMMENT '공연 케스팅 일정 이미지
 ',
-	bidx int unsigned NOT NULL,
-	ridx int unsigned NOT NULL,
 	PRIMARY KEY (pidx),
-	UNIQUE (pidx),
-	UNIQUE (bidx),
-	UNIQUE (ridx)
+	UNIQUE (pidx)
 );
 
 
@@ -179,12 +185,10 @@ CREATE TABLE price
 	prseatprice int NOT NULL,
 	sidx int unsigned NOT NULL,
 	pidx int unsigned NOT NULL,
-	bidx int unsigned NOT NULL,
 	PRIMARY KEY (priceidx),
 	UNIQUE (priceidx),
 	UNIQUE (sidx),
-	UNIQUE (pidx),
-	UNIQUE (bidx)
+	UNIQUE (pidx)
 );
 
 
@@ -211,8 +215,12 @@ CREATE TABLE review
 	-- 
 	rdely char DEFAULT 'N' NOT NULL COMMENT 'n :삭제 안함, y:삭제 함
 ',
+	uidx int unsigned NOT NULL,
+	pidx int unsigned NOT NULL,
 	PRIMARY KEY (ridx),
-	UNIQUE (ridx)
+	UNIQUE (ridx),
+	UNIQUE (uidx),
+	UNIQUE (pidx)
 );
 
 
@@ -252,11 +260,9 @@ CREATE TABLE seat
 (Y: 예약됨 N:예약안됨(현재 예약 상태를 나타냄)
 ',
 	tidx int unsigned NOT NULL,
-	bidx int unsigned NOT NULL,
 	PRIMARY KEY (sidx),
 	UNIQUE (sidx),
-	UNIQUE (tidx),
-	UNIQUE (bidx)
+	UNIQUE (tidx)
 );
 
 
@@ -282,11 +288,9 @@ CREATE TABLE theater
 	tlocation text NOT NULL COMMENT '공연장 위치
 ',
 	pidx int unsigned NOT NULL,
-	bidx int unsigned NOT NULL,
 	PRIMARY KEY (tidx),
 	UNIQUE (tidx),
-	UNIQUE (pidx),
-	UNIQUE (bidx)
+	UNIQUE (pidx)
 );
 
 
@@ -308,6 +312,8 @@ CREATE TABLE user
 	-- 
 	username varbinary(50) NOT NULL COMMENT '유저 실제 이름
 ',
+	-- 유저 생일
+	userbirth varchar(10) NOT NULL COMMENT '유저 생일',
 	-- 유저 전화번호
 	userphone varbinary(20) NOT NULL COMMENT '유저 전화번호',
 	-- 유저 이메일
@@ -326,62 +332,26 @@ defulte N (N: 탈퇴 안됨, Y: 탈퇴함)
 	-- 
 	userdelyndate datetime DEFAULT NOW(), SYSDATE() COMMENT '탈퇴 시 입력 날짜
 ',
-	bidx int unsigned NOT NULL,
-	ridx int unsigned NOT NULL,
 	PRIMARY KEY (uidx),
 	UNIQUE (uidx),
-	UNIQUE (userid),
-	UNIQUE (bidx),
-	UNIQUE (ridx)
+	UNIQUE (userid)
 ) COMMENT = '사이트에 가입한 회원들을 저장해놓는 곳';
 
 
 
 /* Create Foreign Keys */
 
-ALTER TABLE performances
-	ADD FOREIGN KEY (bidx)
-	REFERENCES booking (bidx)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE price
-	ADD FOREIGN KEY (bidx)
-	REFERENCES booking (bidx)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE seat
-	ADD FOREIGN KEY (bidx)
-	REFERENCES booking (bidx)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE theater
-	ADD FOREIGN KEY (bidx)
-	REFERENCES booking (bidx)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
-ALTER TABLE user
-	ADD FOREIGN KEY (bidx)
-	REFERENCES booking (bidx)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
 ALTER TABLE artist
 	ADD FOREIGN KEY (cidx)
 	REFERENCES casting (cidx)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE booking
+	ADD FOREIGN KEY (pidx)
+	REFERENCES performances (pidx)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
@@ -403,6 +373,14 @@ ALTER TABLE price
 ;
 
 
+ALTER TABLE review
+	ADD FOREIGN KEY (pidx)
+	REFERENCES performances (pidx)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
 ALTER TABLE theater
 	ADD FOREIGN KEY (pidx)
 	REFERENCES performances (pidx)
@@ -411,17 +389,17 @@ ALTER TABLE theater
 ;
 
 
-ALTER TABLE performances
-	ADD FOREIGN KEY (ridx)
-	REFERENCES review (ridx)
+ALTER TABLE booking
+	ADD FOREIGN KEY (priceidx)
+	REFERENCES price (priceidx)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
 
 
-ALTER TABLE user
-	ADD FOREIGN KEY (ridx)
-	REFERENCES review (ridx)
+ALTER TABLE booking
+	ADD FOREIGN KEY (sidx)
+	REFERENCES seat (sidx)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
@@ -435,9 +413,33 @@ ALTER TABLE price
 ;
 
 
+ALTER TABLE booking
+	ADD FOREIGN KEY (tidx)
+	REFERENCES theater (tidx)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
 ALTER TABLE seat
 	ADD FOREIGN KEY (tidx)
 	REFERENCES theater (tidx)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE booking
+	ADD FOREIGN KEY (uidx)
+	REFERENCES user (uidx)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE review
+	ADD FOREIGN KEY (uidx)
+	REFERENCES user (uidx)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;

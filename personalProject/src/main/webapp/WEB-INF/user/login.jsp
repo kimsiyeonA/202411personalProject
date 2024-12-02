@@ -35,11 +35,11 @@
 							<div class="form-floating loginform mt-4 ">
 								<input type="email"
 									class="form-control rounded-top-3 rounded-bottom-0"
-									id="floatingInput" placeholder="name@example.com"> <label
+									id="userid" placeholder="name@example.com"> <label
 									for="floatingInput">아이디</label>
 							</div>
 							<div class="form-floating mb-5 loginform ">
-								<input type="password"
+								<input type="userpwd"
 									class="form-control rounded-top-0 rounded-bottom-3"
 									id="floatingPassword" placeholder="Password"> <label
 									for="floatingPassword">비밀번호</label>

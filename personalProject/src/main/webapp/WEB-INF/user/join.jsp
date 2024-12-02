@@ -11,6 +11,71 @@
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
 <link href="../resources/css/style.css" rel="stylesheet">
+<script>
+<script>
+//alert("test");
+
+function check3(){
+
+	var fm = document.frm;
+
+	if (fm.memberid.value == ""){
+		alert("아이디를 입력해주세요");
+		fm.memberid.focus(); // 팝업창이 키고 깜빡거리게 
+		return;
+	}else if(fm.memberpwd.value == ""){
+		alert("비밀번호를 입력해주세요");
+		fm.memberpwd.focus(); 
+		return;
+	}else if(fm.memberpwd2.value == ""){
+		alert("비밀번호 확인을 입력해주세요");
+		fm.memberpwd2.focus(); 
+		return;
+	}else if(fm.memberpwd.value != fm.memberpwd2.value){
+		alert("비밀번호가 일치하지 않습니다.");
+		fm.memberpwd2.value = "";
+		fm.memberpwd2.focus(); 
+		return;
+	}else if(fm.membername.value == ""){
+		alert("이름을 입력해주세요");
+		fm.membername.focus(); 
+		return;
+	}else if(fm.memberbirth.value == ""){
+		alert("생년월일을 입력해주세요");
+		fm.memberbirth.focus(); 
+		return;
+	}else if(fm.memberphone.value == ""){
+		alert("연락처를 입력해주세요");
+		fm.memberphone.focus(); 
+		return;
+	}else if(fm.memberemail.value == ""){
+		alert("이메일을 입력해주세요");
+		fm.memberemail.focus(); 
+		return;
+	}
+	
+	/* 	else if(fm.btn.value == "N"){
+		alert("아이디중복체크를 해주세요");
+		fm.memberid.focus(); // 팝업창이 키고 깜빡거리게 
+		return;
+	} */
+	/* else if(email.test(fm.memberemail.value) == false){
+		alert("이메일 형식이 올바르지 않습니다.");
+		fm.memberemail.value = "";
+		fm.memberemail.focus(); 
+		return;
+	} */
+	var ans = confirm("저장하시겠습니까?")
+	
+	if(ans == true){
+		fm.action="<%=request.getContextPath()%>/member/memberJoinAction.aws" ;  
+		fm.method="post"; 
+		fm.submit();
+	}
+
+	return; 
+}
+</script>
 </head>
 <body>
 
@@ -31,31 +96,23 @@
 
 					<div
 						class="modal-body form-signin w-100 m-auto p-5 pt-0 loginBoxColor">
-						<form class="">
+						<form name="frm">
 							<div class="form-floating loginform mt-4 mb-2">
-								<input type="email"
-									class="form-control rounded-top-0 rounded-bottom-0"
-									id="floatingInput" placeholder="name@example.com"> <label
-									for="floatingInput">아이디</label>
+								<input type="text" class="form-control rounded-top-0 rounded-bottom-0"
+									id="userid"> <label for="userid">아이디</label>
 							</div>
 
 							<div class="form-floating loginform mt-2 mb-2">
-								<input type="password"
-									class="form-control rounded-top-0 rounded-bottom-0"
-									id="floatingPassword" placeholder="Password"> <label
-									for="floatingPassword">비밀번호</label>
+								<input type="password" class="form-control rounded-top-0 rounded-bottom-0"
+									id="userpwd"> <label for="userpwd">비밀번호</label>
 							</div>
 							<div class="form-floating loginform mt-2 mb-2">
-								<input type="password"
-									class="form-control rounded-top-0 rounded-bottom-0"
-									id="floatingPassword" placeholder="Password"> <label
-									for="floatingPassword">비밀번호 확인</label>
+								<input type="password" class="form-control rounded-top-0 rounded-bottom-0"
+									id="userpwdright"> <label for="userpwdright">비밀번호 확인</label>
 							</div>
 							<div class="form-floating loginform mt-2 mb-2">
-								<input type="email"
-									class="form-control rounded-top-0 rounded-bottom-0"
-									id="floatingInput" placeholder="name@example.com"> <label
-									for="floatingInput">이름</label>
+								<input type="text" class="form-control rounded-top-0 rounded-bottom-0"
+									id="username" > <label for="floatingInput">이름</label>
 							</div>
 							<div class="form-floating loginform mt-2 mb-2">
 								<input type="date"

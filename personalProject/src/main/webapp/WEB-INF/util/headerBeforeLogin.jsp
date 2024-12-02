@@ -31,10 +31,15 @@
 
 
 				<div class="text-end">
-					<button type="button" class="btn btn-outline-light me-2">로그인</button>
-					<button type="button" class="btn btn-outline-light me-2">회원가입</button>
-					<button type="button" class="btn btn-outline-light me-2">마이페이지</button>
-
+					<a href="<%=request.getContextPath()%>/user/login.zxc">
+						<button type="button" class="btn btn-outline-light me-2">로그인</button>
+					</a>
+					<a href="<%=request.getContextPath()%>/user/join.zxc">
+						<button type="button" class="btn btn-outline-light me-2">회원가입</button>
+					</a>
+					<a href="<%=request.getContextPath()%>/user/login.zxc">
+						<button type="button" class="btn btn-outline-light me-2">마이페이지</button>
+					</a>
 				</div>
 			</div>
 		</div>
